@@ -38,8 +38,7 @@ public class UserController {
 	
 	public static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	//private static final Logger logger = Logger.getLogger(UserController.class);
-	
+		
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -56,16 +55,14 @@ public class UserController {
 	// create user
 		@PostMapping("/create")
 	    public Users createUser(@RequestBody Users user) {
-	        //Users user = new Users(firstName, lastName, email);
-	        System.out.println("##################Get Details#####################");
-	       return userRepository.saveAndFlush(user);
+	        return userRepository.saveAndFlush(user);
 	        }
 
 
 		
 		// for delete the user
 		
-		/*@DeleteMapping(path = { "/{id}" })
+		@DeleteMapping(path = { "/{id}" })
 		public Users delete(@PathVariable("id") int id) {
 			Users deletedUser = null;
 			for (Users usr : user) {
@@ -76,21 +73,7 @@ public class UserController {
 				}
 			}
 			return deletedUser;
-		}*/
-	/*// create user
-	@PostMapping("/create")
-    public Users createUser(String firstName, String lastName, String email) {
-        Users user = new Users(firstName, lastName, email);
-        System.out.println("##################Get Details#####################");
-       return userRepository.saveAndFlush(user);
-        }
-	*/
-	
 		
-	@GetMapping(path = "/ttt")
-	public String getData() {
-		return "UserController Page";
-	}
 	
 
 
